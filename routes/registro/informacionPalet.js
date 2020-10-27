@@ -16,7 +16,6 @@ async function informacionPalet(req, res, request) {
     }, {});
 
     const { NumEntrada, Palet } = fields;
-    console.log(fields);
 
     const stringRequest = `SELECT * FROM CABECERAENTTRA 
     INNER JOIN PROVEE ON CABECERAENTTRA.CliCabec = PROVEE.CodProvee 
@@ -36,7 +35,6 @@ async function informacionPalet(req, res, request) {
         // eslint-disable-next-line prefer-destructuring
         response = result.recordset[0];
       }
-      console.log(response);
       res.status(200).send(JSON.stringify({ ...response, Error, Palet }));
     });
   } catch (e) {
